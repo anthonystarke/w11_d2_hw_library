@@ -17,7 +17,6 @@ public class BorrowerTest {
         borrower = new Borrower();
     }
 
-
     @Test
     public void getBookCount(){
         assertEquals(0,borrower.bookCount());
@@ -25,9 +24,12 @@ public class BorrowerTest {
 
     @Test
     public void getBookFromLibrary(){
-        borrower.getNewBook(library.removeBook());
-        assertEquals(1,borrower.bookCount());
-        assertEquals(0,library.bookCount());
+        if (library.lookForBook(book)){
+            borrower.getNewBook(library.removeBook(book));
+            assertEquals(1,borrower.bookCount());
+            assertEquals(0,library.bookCount());
+        }
+
     }
-    
+
 }

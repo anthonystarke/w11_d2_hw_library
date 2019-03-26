@@ -19,7 +19,13 @@ public class Library {
         }
     }
 
-    public Book removeBook(){
-        return bookCollection.remove(0);
+    public boolean lookForBook(Book newBook){
+        return bookCollection.contains(newBook);
+    }
+
+    public Book removeBook(Book book){
+        int bookLocation = bookCollection.indexOf(book);
+        return bookCollection.remove(bookLocation);
+
     }
 }
